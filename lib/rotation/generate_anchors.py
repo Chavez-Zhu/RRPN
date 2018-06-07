@@ -8,7 +8,7 @@ def generate_anchors(base_size = 16, ratios = [0.2, 0.5, 1.0],
 	######################################
 	# Parameter:
 	######################################
-	#	ratio: [0.5, 1, 2]
+	#	ratios: [0.5, 1, 2]
 	#	scales: 2^3, 2^4, 2^5
 	#	angle: [-45, 0, 45]
 	######################################
@@ -21,10 +21,10 @@ def generate_anchors(base_size = 16, ratios = [0.2, 0.5, 1.0],
 		ratios = cfg.TEST.RATIO_GROUP
 
 	if len(cfg.TEST.SCALE_GROUP) != 0:
-		ratios = cfg.TEST.SCALE_GROUP
+		scales = cfg.TEST.SCALE_GROUP
 
 	if len(cfg.TEST.ANGLE_GROUP) != 0:
-		ratios = cfg.TEST.ANGLE_GROUP
+		angle = cfg.TEST.ANGLE_GROUP
 
 	base_anchor = np.array([base_size / 2 - 1, base_size / 2 - 1, base_size, base_size, 0], dtype = np.float32)
 	
